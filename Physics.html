@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Физика - Научный блог</title>
+</head>
+<body>
+    <header>
+        <h1>Физика в программировании</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="articles.html">Статьи</a></li>
+                <li><a href="physics.html" class="active">Физика</a></li>
+                <li><a href="math.html">Математический анализ</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="mechanics">Механика</button>
+                <button class="tab-btn" data-tab="thermodynamics">Термодинамика</button>
+                <button class="tab-btn" data-tab="quantum">Квантовая физика</button>
+                <button class="tab-btn" data-tab="relativity">Теория относительности</button>
+            </div>
+            
+            <div class="tab-content active" id="mechanics">
+                <h2>Физика в игровых движках</h2>
+                <p>Физические движки — основа современных игр. Они рассчитывают столкновения, гравитацию, трение и другие физические явления...</p>
+                <!-- Добавьте больше контента здесь -->
+            </div>
+            
+            <div class="tab-content" id="thermodynamics">
+                <h2>Термодинамика в симуляциях</h2>
+                <p>Моделирование теплопередачи, фазовых переходов и термодинамических процессов...</p>
+            </div>
+            
+            <div class="tab-content" id="quantum">
+                <h2>Квантовые вычисления</h2>
+                <p>Основы квантовой механики для программистов. Кубиты, суперпозиция и квантовая запутанность...</p>
+            </div>
+            
+            <div class="tab-content" id="relativity">
+                <h2>Теория относительности в программировании</h2>
+                <p>Как теория Эйнштейна влияет на GPS и другие системы...</p>
+            </div>
+        </div>
+        
+        <aside class="scroll-sidebar">
+            <!-- Такой же скроллбар как на главной -->
+        </aside>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Научно-технический блог</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
