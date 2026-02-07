@@ -23,7 +23,32 @@ function initTabs() {
     });
 }
 
-// Функция для подсветки активной ссылки в навигации
+// Функция для обработки ссылок в боковой панели
+function initSidebarLinks() {
+    const tabLinks = document.querySelectorAll('.tab-link');
+    tabLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tabId = this.getAttribute('data-tab');
+            const tabButton = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+            if (tabButton) {
+                tabButton.click();
+            }
+        });
+    });
+    
+    // Обработка кликов на теги
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            const tagText = this.textContent;
+            console.log(`Выбран тег: ${tagText}`);
+            // Здесь можно добавить фильтрацию контента
+        });
+    });
+}
+
+// Функция для подсветки активной навигации
 function highlightActiveNav() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('nav a');
@@ -38,117 +63,28 @@ function highlightActiveNav() {
     });
 }
 
-// Функция для плавной прокрутки
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-// Функция для обработки кликов на ссылки в боковой панели
-function initSidebarTabLinks() {
-    const tabLinks = document.querySelectorAll('.tab-link');
-    if (tabLinks.length > 0) {
-        tabLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const tabId = this.getAttribute('data-tab');
-                const tabButton = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
-                if (tabButton) {
-                    tabButton.click();
-                    
-                    // Прокрутка к началу вкладки
-                    setTimeout(() => {
-                        const tabContainer = document.querySelector('.tab-container');
-                        if (tabContainer) {
-                            window.scrollTo({
-                                top: tabContainer.offsetTop - 100,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }, 100);
-                }
-            });
-        });
-    }
-}
-
-// Инициализация при загрузке страницы
+// Основная инициализация
 document.addEventListener('DOMContentLoaded', () => {
     initTabs();
+    initSidebarLinks();
     highlightActiveNav();
-    initSmoothScroll();
-    initSidebarTabLinks();
     
-    // Обработка хэша в URL для вкладок
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-        const tabButton = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
-        if (tabButton) {
-            setTimeout(() => {
-                tabButton.click();
-            }, 100);
-        }
-    }
-    
-    // Анимация для карточек
+    // Анимация появления статей
     const articles = document.querySelectorAll('article');
     articles.forEach((article, index) => {
         article.style.opacity = '0';
         article.style.transform = 'translateY(20px)';
         
         setTimeout(() => {
-            article.style.transition = 'all 0.6s ease';
+            article.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             article.style.opacity = '1';
             article.style.transform = 'translateY(0)';
-        }, index * 200);
+        }, 100 * index);
     });
     
-    // Подсветка активной ссылки в боковой панели
-    function highlightActiveSidebarLink() {
-        const currentHash = window.location.hash.substring(1) || 'limits';
-        const sidebarLinks = document.querySelectorAll('.tab-link');
-        sidebarLinks.forEach(link => {
-            if (link.getAttribute('data-tab') === currentHash) {
-                link.style.background = '#3498db';
-                link.style.color = 'white';
-            } else {
-                link.style.background = '';
-                link.style.color = '';
-            }
-        });
+    // Обновление года в футере
+    const yearSpan = document.querySelector('footer p');
+    if (yearSpan && yearSpan.textContent.includes('2026')) {
+        yearSpan.textContent = yearSpan.textContent.replace('2026', new Date().getFullYear());
     }
-    
-    // Вызывать при смене вкладок
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('tab-btn')) {
-            setTimeout(highlightActiveSidebarLink, 150);
-        }
-    });
-    
-    highlightActiveSidebarLink();
 });
-
-// Функция для обновления даты в футере
-function updateYear() {
-    const yearElement = document.querySelector('footer p');
-    if (yearElement && yearElement.textContent.includes('2026')) {
-        const currentYear = new Date().getFullYear();
-        yearElement.textContent = yearElement.textContent.replace('2026', currentYear);
-    }
-}
-
-// Вызов функции обновления года
-updateYear();
