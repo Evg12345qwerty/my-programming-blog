@@ -57,60 +57,6 @@ function initSmoothScroll() {
     });
 }
 
-// Функция для динамической загрузки контента (опционально)
-function loadContent(section) {
-    const content = {
-        'mechanics': '<h2>Механика в программировании</h2><p>Содержимое для механики...</p>',
-        'thermodynamics': '<h2>Термодинамика</h2><p>Содержимое для термодинамики...</p>',
-        // Добавьте больше контента по мере необходимости
-    };
-    
-    return content[section] || '<p>Контент в разработке...</p>';
-}
-
-// Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-    initTabs();
-    highlightActiveNav();
-    initSmoothScroll();
-    
-    // Обработка хэша в URL для вкладок
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-        const tabButton = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
-        if (tabButton) {
-            tabButton.click();
-        }
-    }
-    
-    // Анимация для карточек
-    const articles = document.querySelectorAll('article');
-    articles.forEach((article, index) => {
-        article.style.opacity = '0';
-        article.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            article.style.transition = 'all 0.6s ease';
-            article.style.opacity = '1';
-            article.style.transform = 'translateY(0)';
-        }, index * 200);
-    });
-});
-
-// Функция для обновления даты в футере
-function updateYear() {
-    const yearElement = document.querySelector('footer p');
-    if (yearElement && yearElement.textContent.includes('2026')) {
-        const currentYear = new Date().getFullYear();
-        yearElement.textContent = yearElement.textContent.replace('2026', currentYear);
-    }
-}
-
-// Вызов функции обновления года
-updateYear();
-
-// Добавить после существующего кода в script.js
-
 // Функция для обработки кликов на ссылки в боковой панели
 function initSidebarTabLinks() {
     const tabLinks = document.querySelectorAll('.tab-link');
@@ -139,47 +85,12 @@ function initSidebarTabLinks() {
     }
 }
 
-// Обновить функцию initTabs для поддержки MathJax
-function initTabs() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Удаляем активный класс у всех кнопок
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            // Добавляем активный класс текущей кнопке
-            button.classList.add('active');
-            
-            // Скрываем все содержимое вкладок
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Показываем выбранную вкладку
-            const tabId = button.getAttribute('data-tab');
-            const activeTab = document.getElementById(tabId);
-            if (activeTab) {
-                activeTab.classList.add('active');
-                
-                // Обновляем URL с хэшем
-                history.pushState(null, null, `#${tabId}`);
-                
-                // Если есть MathJax, обновляем рендеринг формул
-                if (typeof MathJax !== 'undefined') {
-                    setTimeout(() => {
-                        MathJax.typesetPromise();
-                    }, 100);
-                }
-            }
-        });
-    });
-}
-
-// Обновить обработку DOMContentLoaded:
+// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     highlightActiveNav();
     initSmoothScroll();
-    initSidebarTabLinks(); // Добавить эту строку
+    initSidebarTabLinks();
     
     // Обработка хэша в URL для вкладок
     const hash = window.location.hash.substring(1);
@@ -229,3 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     highlightActiveSidebarLink();
 });
+
+// Функция для обновления даты в футере
+function updateYear() {
+    const yearElement = document.querySelector('footer p');
+    if (yearElement && yearElement.textContent.includes('2026')) {
+        const currentYear = new Date().getFullYear();
+        yearElement.textContent = yearElement.textContent.replace('2026', currentYear);
+    }
+}
+
+// Вызов функции обновления года
+updateYear();
