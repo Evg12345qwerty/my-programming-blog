@@ -4,121 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <title>Научно-технический блог</title>
+    <title>Научный блог</title>
 </head>
 <body>
     <header>
-        <h1>Научно-технический блог</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Главная</a></li>
-                <li><a href="articles.html">Статьи</a></li>
-                <li><a href="physics.html">Физика</a></li>
-                <li><a href="math.html">Математический анализ</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>
+        <h1>Научный блог</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="active">Главная</a>
+            <a href="programming.html">Программирование</a>
+            <a href="math.html">Математика</a>
+            <a href="physics.html">Физика</a>
+            <a href="ai.html">Искусственный интеллект</a>
         </nav>
     </header>
-    
-    <main>
-        <div class="tab-container">
-            <div class="tab-buttons">
-                <button class="tab-btn active" data-tab="programming">Программирование</button>
-                <button class="tab-btn" data-tab="ai">Искусственный интеллект</button>
-                <button class="tab-btn" data-tab="algorithms">Алгоритмы</button>
-            </div>
-            
-            <div class="tab-content active" id="programming">
-                <article>
-                    <h2>Интеллект за ширмой: Математика NPC и Мастер-контроля</h2>
-                    <p>Создание убедительного NPC (неигрового персонажа) — это не только работа художника, но и строгий математический расчет.</p>
-                    
-                    <h3>Математика «мозгов»</h3>
-                    <p>Чтобы NPC понимал, куда идти и когда атаковать, разработчики используют несколько ключевых концепций:</p>
-                    <ul>
-                        <li><strong>Конечные автоматы (FSM):</strong> Математическая модель состояний</li>
-                        <li><strong>Деревья поведения (Behavior Trees):</strong> Иерархическая структура</li>
-                        <li><strong>Векторная алгебра:</strong> Фундамент для перемещения</li>
-                    </ul>
-                    
-                    <h3>Роль Мастера-контроля</h3>
-                    <p>«Мастер» — это глобальный скрипт, который координирует группы NPC.</p>
-                </article>
 
-                <article>
-                    <h2>Как выбрать язык программирования?</h2>
-                    <p>Выбор первого языка — это шаг, который часто вызывает ступор у новичков.</p>
-                    
-                    <h3>На что ориентироваться?</h3>
-                    <div class="languages">
-                        <div class="lang-card">
-                            <h4>Python</h4>
-                            <p>Идеальный выбор для старта.</p>
+    <div class="container">
+        <main class="content">
+            <!-- Статья 1 -->
+            <article class="post">
+                <h2>Интеллект за ширмой: Математика NPC и Мастер-контроля</h2>
+                <div class="post-meta">15 марта 2026 | Программирование</div>
+                <p>Создание убедительного NPC (неигрового персонажа) — это не только работа художника, но и строгий математический расчет. В основе поведения любого моба лежит логика, которой управляет так называемый «Мастер-контроля» или системный менеджер.</p>
+                <p>Чтобы NPC понимал, куда идти и когда атаковать, разработчики используют несколько ключевых концепций:</p>
+                <p>Конечные автоматы (FSM): Математическая модель, описывающая состояния (Покой → Поиск → Атака). Переходы между ними зависят от условий (расстояние до игрока < X).</p>
+                <p>Деревья поведения (Behavior Trees): Иерархическая структура, позволяющая создавать сложные сценарии из простых логических узлов.</p>
+                <p>Векторная алгебра: Фундамент для перемещения. С помощью векторов NPC вычисляет направление взгляда, траекторию движения и углы обзора.</p>
+            </article>
+
+            <!-- Статья 2 -->
+            <article class="post">
+                <h2>Как выбрать язык программирования?</h2>
+                <div class="post-meta">14 марта 2026 | Программирование</div>
+                <p>Выбор первого языка — это шаг, который часто вызывает ступор у новичков. На самом деле, не существует «лучшего» языка, но есть те, что лучше подходят для конкретных целей.</p>
+                <p>Python — идеальный выбор для старта. У него простой синтаксис, похожий на английский язык. Он незаменим в анализе данных, искусственном интеллекте и автоматизации.</p>
+                <p>JavaScript — если вам интересно создавать сайты. Это «язык интернета», который позволяет делать страницы интерактивными.</p>
+                <p>Java или Kotlin — отличный путь, если вы мечтаете о разработке мобильных приложений под Android.</p>
+                <p>Главный совет: Не тратьте недели на выбор. Самое важное — начать писать код. Основы программирования (циклы, переменные, условия) везде схожи. Освоив один язык, вы гораздо быстрее выучите второй.</p>
+            </article>
+
+            <!-- Статья 3 -->
+            <article class="post">
+                <h2>Обыкновенные дифференциальные уравнения</h2>
+                <div class="post-meta">13 марта 2026 | Математика</div>
+                <p>Обыкновенные дифференциальные уравнения (ОДУ) — это уравнения, содержащие одну или несколько производных от неизвестной функции одной переменной. Они описывают, как меняется величина во времени или пространстве.</p>
+                <p>Общий вид ОДУ первого порядка: dy/dx = f(x, y), где y — неизвестная функция, x — независимая переменная.</p>
+                <p>Классификация ОДУ:</p>
+                <p>1. ОДУ первого порядка: с разделяющимися переменными, линейные, однородные, уравнение Бернулли.</p>
+                <p>2. Линейные ОДУ высших порядков: второго порядка, с постоянными коэффициентами.</p>
+                <p>Применение в физике: движение под действием силы (второй закон Ньютона), электрические цепи (закон Кирхгофа), радиоактивный распад.</p>
+            </article>
+
+            <!-- Статья 4 -->
+            <article class="post">
+                <h2>Квантовая физика для программистов</h2>
+                <div class="post-meta">12 марта 2026 | Физика</div>
+                <p>Квантовая механика — это фундаментальная теория в физике, описывающая природу на малых масштабах, уровнях атомов и субатомных частиц.</p>
+                <p>Основные принципы: принцип неопределенности Гейзенберга, принцип суперпозиции, квантовая запутанность.</p>
+                <p>Квантовые вычисления используют кубиты вместо битов. Кубит может находиться в состоянии 0, 1 или в суперпозиции обоих состояний одновременно.</p>
+                <p>Квантовые алгоритмы, такие как алгоритм Шора для факторизации чисел и алгоритм Гровера для поиска в базе данных, демонстрируют экспоненциальное ускорение по сравнению с классическими алгоритмами.</p>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h3>Последние статьи</h3>
+                <div class="recent-posts">
+                    <a href="#npc" class="sidebar-link">
+                        <div class="sidebar-post">
+                            <h4>Интеллект за ширмой</h4>
+                            <span class="date">15.03.2026</span>
                         </div>
-                        <div class="lang-card">
-                            <h4>JavaScript</h4>
-                            <p>Если вам интересно создавать сайты.</p>
+                    </a>
+                    <a href="#programming" class="sidebar-link">
+                        <div class="sidebar-post">
+                            <h4>Выбор языка программирования</h4>
+                            <span class="date">14.03.2026</span>
                         </div>
-                        <div class="lang-card">
-                            <h4>Java/Kotlin</h4>
-                            <p>Отличный путь для разработки под Android.</p>
+                    </a>
+                    <a href="#ode" class="sidebar-link">
+                        <div class="sidebar-post">
+                            <h4>Дифференциальные уравнения</h4>
+                            <span class="date">13.03.2026</span>
                         </div>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="tab-content" id="ai">
-                <article>
-                    <h2>Искусственный интеллект в современном мире</h2>
-                    <p>ИИ меняет наш мир с невероятной скоростью.</p>
-                    
-                    <h3>Основные направления ИИ</h3>
-                    <ul>
-                        <li><strong>Машинное обучение:</strong> Алгоритмы, которые учатся на данных</li>
-                        <li><strong>Нейронные сети:</strong> Системы, имитирующие работу мозга</li>
-                    </ul>
-                </article>
-            </div>
-            
-            <div class="tab-content" id="algorithms">
-                <article>
-                    <h2>Алгоритмы и их эффективность</h2>
-                    <p>Алгоритмы — это основа программирования.</p>
-                    
-                    <h3>Сложность алгоритмов</h3>
-                    <ul>
-                        <li><strong>O(1):</strong> Константное время</li>
-                        <li><strong>O(n):</strong> Линейное время</li>
-                    </ul>
-                </article>
-            </div>
-        </div>
-        
-        <aside class="scroll-sidebar">
-            <div class="scroll-container">
-                <h3>Быстрая навигация</h3>
-                <ul>
-                    <li><a href="#programming" class="tab-link" data-tab="programming">Программирование</a></li>
-                    <li><a href="#ai" class="tab-link" data-tab="ai">Искусственный интеллект</a></li>
-                    <li><a href="#algorithms" class="tab-link" data-tab="algorithms">Алгоритмы</a></li>
-                </ul>
-                
-                <h3>Популярные теги</h3>
-                <div class="tags">
-                    <span class="tag">Программирование</span>
-                    <span class="tag">Математика</span>
-                    <span class="tag">Физика</span>
-                    <span class="tag">Алгоритмы</span>
-                    <span class="tag">ИИ</span>
+                    </a>
+                    <a href="#quantum" class="sidebar-link">
+                        <div class="sidebar-post">
+                            <h4>Квантовая физика</h4>
+                            <span class="date">12.03.2026</span>
+                        </div>
+                    </a>
+                </div>
+
+                <h3>Категории</h3>
+                <div class="categories">
+                    <a href="programming.html" class="category">Программирование</a>
+                    <a href="math.html" class="category">Математика</a>
+                    <a href="physics.html" class="category">Физика</a>
+                    <a href="ai.html" class="category">Искусственный интеллект</a>
+                </div>
+
+                <h3>Архив</h3>
+                <div class="archive">
+                    <a href="#march2026" class="archive-link">Март 2026</a>
+                    <a href="#february2026" class="archive-link">Февраль 2026</a>
+                    <a href="#january2026" class="archive-link">Январь 2026</a>
+                    <a href="#december2025" class="archive-link">Декабрь 2025</a>
+                </div>
+
+                <h3>Подписаться</h3>
+                <div class="subscribe">
+                    <p>Получайте новые статьи на email</p>
+                    <input type="email" placeholder="Ваш email" class="email-input">
+                    <button class="subscribe-btn">Подписаться</button>
                 </div>
             </div>
         </aside>
-    </main>
-    
+    </div>
+
     <footer>
-        <p>&copy; 2026 Научно-технический блог</p>
+        <div class="footer-content">
+            <p>&copy; 2026 Научный блог. Все права защищены.</p>
+            <p>Статический сайт | Контент обновляется вручную</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
