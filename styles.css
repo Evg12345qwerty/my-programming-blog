@@ -385,3 +385,133 @@ footer {
         font-size: 1.3rem;
     }
 }
+ /* Дополнительные стили для страницы ИИ */
+
+/* Стили для тегов технологий */
+.tech-tag {
+    display: inline-block;
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    margin: 0.2rem;
+    border: 1px solid #bbdefb;
+}
+
+/* Стили для статистики */
+.ai-stats {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+}
+
+.stat-item {
+    margin: 0.8rem 0;
+    padding: 0.5rem;
+    border-bottom: 1px dashed #ddd;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 0.2rem;
+}
+
+/* Цитаты для статей ИИ */
+.ai-quote {
+    border-left: 3px solid #FF5722;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #555;
+    background: #FFF8E1;
+    padding: 1rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Выделение кода в статьях */
+.ai-code {
+    background: #263238;
+    color: #ECEFF1;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Специальные блоки для примеров ИИ */
+.ai-example {
+    background: linear-gradient(135deg, #E3F2FD 0%, #F3E5F5 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #9C27B0;
+}
+
+.ai-example h4 {
+    color: #7B1FA2;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+/* Стили для списков в статьях ИИ */
+.ai-list {
+    list-style-type: none;
+    margin: 1.5rem 0;
+}
+
+.ai-list li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+}
+
+.ai-list li:before {
+    content: "🤖";
+    position: absolute;
+    left: 0;
+}
+
+/* Адаптивные улучшения для ИИ контента */
+@media (max-width: 768px) {
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .ai-stats {
+        padding: 0.8rem;
+    }
+    
+    .tech-tag {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+/* Анимация для элементов ИИ */
+@keyframes aiPulse {
+    0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+.ai-highlight {
+    animation: aiPulse 2s infinite;
+    border: 1px solid #4CAF50;
+}
