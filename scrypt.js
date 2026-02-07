@@ -1,76 +1,60 @@
-// Функция для переключения вкладок
-function initTabs() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
+// Простой скрипт для сайта
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Сайт загружен');
     
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Удаляем активный класс у всех кнопок
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            // Добавляем активный класс текущей кнопке
-            button.classList.add('active');
-            
-            // Скрываем все содержимое вкладок
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Показываем выбранную вкладку
-            const tabId = button.getAttribute('data-tab');
-            const activeTab = document.getElementById(tabId);
-            if (activeTab) {
-                activeTab.classList.add('active');
+    // Подсветка активной ссылки в навигации
+    function highlightActiveNav() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.main-nav a');
+        
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
         });
-    });
-}
-
-// Функция для обработки ссылок в боковой панели
-function initSidebarLinks() {
-    const tabLinks = document.querySelectorAll('.tab-link');
-    tabLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const tabId = this.getAttribute('data-tab');
-            const tabButton = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
-            if (tabButton) {
-                tabButton.click();
+    }
+    
+    // Простая подписка по email
+    const subscribeBtn = document.querySelector('.subscribe-btn');
+    const emailInput = document.querySelector('.email-input');
+    
+    if (subscribeBtn) {
+        subscribeBtn.addEventListener('click', function() {
+            if (emailInput && emailInput.value) {
+                const email = emailInput.value;
+                if (validateEmail(email)) {
+                    alert(`Спасибо за подписку! Мы отправили письмо на ${email}`);
+                    emailInput.value = '';
+                } else {
+                    alert('Пожалуйста, введите корректный email адрес');
+                }
+            } else {
+                alert('Пожалуйста, введите ваш email');
             }
         });
-    });
-    
-    // Обработка кликов на теги
-    const tags = document.querySelectorAll('.tag');
-    tags.forEach(tag => {
-        tag.addEventListener('click', function() {
-            const tagText = this.textContent;
-            console.log(`Выбран тег: ${tagText}`);
-            // Здесь можно добавить фильтрацию контента
-        });
-    });
-}
-
-// Функция для подсветки активной навигации
-function highlightActiveNav() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
+        
+        // Подписка по нажатию Enter
+        if (emailInput) {
+            emailInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    subscribeBtn.click();
+                }
+            });
         }
-    });
-}
-
-// Основная инициализация
-document.addEventListener('DOMContentLoaded', () => {
-    initTabs();
-    initSidebarLinks();
-    highlightActiveNav();
+    }
+    
+    // Валидация email
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
     
     // Анимация появления статей
-    const articles = document.querySelectorAll('article');
+    const articles = document.querySelectorAll('.post');
     articles.forEach((article, index) => {
         article.style.opacity = '0';
         article.style.transform = 'translateY(20px)';
@@ -86,5 +70,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.querySelector('footer p');
     if (yearSpan && yearSpan.textContent.includes('2026')) {
         yearSpan.textContent = yearSpan.textContent.replace('2026', new Date().getFullYear());
+    }
+    
+    // Плавная прокрутка для якорей
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Вызов функции подсветки
+    highlightActiveNav();
+    
+    // Добавляем год в футер
+    const footerText = document.querySelector('.footer-content p:first-child');
+    if (footerText) {
+        footerText.innerHTML = `&copy; ${new Date().getFullYear()} Научный блог. Все права защищены.`;
     }
 });
