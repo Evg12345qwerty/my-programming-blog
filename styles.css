@@ -454,3 +454,206 @@ footer p {
         font-size: 0.8rem;
     }
 }
+/* Стили для тегов */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tag {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: #bbdefb;
+    transform: translateY(-2px);
+}
+
+/* Улучшение для скроллбара в Firefox */
+.scroll-sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: #3498db #f1f1f1;
+}
+
+/* Стили для выделения кода внутри pre */
+.code-example pre code {
+    color: #f8f9fa;
+    font-family: 'Courier New', monospace;
+    display: block;
+}
+
+/* Стили для активных ссылок в навигации */
+nav a.active {
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+
+/* Стили для анимации загрузки */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
+/* Стили для разделителя */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #3498db, transparent);
+    margin: 2rem 0;
+}
+
+/* Стили для цитат */
+blockquote {
+    border-left: 4px solid #3498db;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #555;
+}
+
+/* Стили для таблиц */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+tr:hover {
+    background: #f5f7fa;
+}
+
+/* Стили для кнопок */
+button:not(.tab-btn) {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+}
+
+button:not(.tab-btn):hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button:not(.tab-btn):active {
+    transform: translateY(0);
+}
+
+/* Стили для формы */
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Стили для изображений */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* Стили для списков в боковой панели */
+.scroll-container ul li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Дополнительные медиа-запросы для очень маленьких экранов */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    nav a {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    article {
+        padding: 1rem;
+    }
+    
+    .tab-btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .scroll-container {
+        padding: 1rem;
+    }
+    
+    .scroll-container h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Стили для кастомного выделения текста */
+::selection {
+    background: rgba(52, 152, 219, 0.3);
+    color: #2c3e50;
+}
+
+/* Стили для печати */
+@media print {
+    .scroll-sidebar, nav, footer {
+        display: none;
+    }
+    
+    main {
+        display: block;
+    }
+    
+    article {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
