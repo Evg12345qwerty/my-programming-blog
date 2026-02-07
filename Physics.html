@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Физика - Научный блог</title>
+    <title>Физика</title>
 </head>
 <body>
     <header>
-        <h1>Физика в программировании</h1>
+        <h1>Физика</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
@@ -25,41 +25,29 @@
             <div class="tab-buttons">
                 <button class="tab-btn active" data-tab="mechanics">Механика</button>
                 <button class="tab-btn" data-tab="thermodynamics">Термодинамика</button>
-                <button class="tab-btn" data-tab="quantum">Квантовая физика</button>
-                <button class="tab-btn" data-tab="relativity">Теория относительности</button>
             </div>
             
             <div class="tab-content active" id="mechanics">
-                <h2>Физика в игровых движках</h2>
-                <p>Физические движки — основа современных игр. Они рассчитывают столкновения, гравитацию, трение и другие физические явления...</p>
-                <!-- Добавьте больше контента здесь -->
+                <article><h2>Механика</h2><p>Содержимое механики...</p></article>
             </div>
             
             <div class="tab-content" id="thermodynamics">
-                <h2>Термодинамика в симуляциях</h2>
-                <p>Моделирование теплопередачи, фазовых переходов и термодинамических процессов...</p>
-            </div>
-            
-            <div class="tab-content" id="quantum">
-                <h2>Квантовые вычисления</h2>
-                <p>Основы квантовой механики для программистов. Кубиты, суперпозиция и квантовая запутанность...</p>
-            </div>
-            
-            <div class="tab-content" id="relativity">
-                <h2>Теория относительности в программировании</h2>
-                <p>Как теория Эйнштейна влияет на GPS и другие системы...</p>
+                <article><h2>Термодинамика</h2><p>Содержимое термодинамики...</p></article>
             </div>
         </div>
         
         <aside class="scroll-sidebar">
-            <!-- Такой же скроллбар как на главной -->
+            <div class="scroll-container">
+                <h3>Разделы физики</h3>
+                <ul>
+                    <li><a href="#mechanics" class="tab-link" data-tab="mechanics">Механика</a></li>
+                    <li><a href="#thermodynamics" class="tab-link" data-tab="thermodynamics">Термодинамика</a></li>
+                </ul>
+            </div>
         </aside>
     </main>
     
-    <footer>
-        <p>&copy; 2026 Научно-технический блог</p>
-    </footer>
-    
+    <footer><p>&copy; 2026 Научно-технический блог</p></footer>
     <script src="script.js"></script>
 </body>
 </html>
