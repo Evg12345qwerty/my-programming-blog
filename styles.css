@@ -279,3 +279,181 @@ footer p {
         min-width: 100%;
     }
 }
+/* Дополнительные стили для статьи об ОДУ */
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.definition, .application, .method, .modern-application {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #3498db;
+}
+
+.math-formula {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-family: 'Cambria Math', 'Times New Roman', serif;
+    font-size: 1.1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+.classification {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.type-card {
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.type-card h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #3498db;
+}
+
+.numerical-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.code-example {
+    background: #2c3e50;
+    color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.code-example pre {
+    margin: 0;
+}
+
+.code-example code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.insight {
+    background: linear-gradient(135deg, #fff9db, #ffec99);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    border-left: 4px solid #f59f00;
+}
+
+.insight h4 {
+    color: #e67700;
+}
+
+.conclusion {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    border-left: 4px solid #1976d2;
+}
+
+.conclusion h3 {
+    color: #1565c0;
+}
+
+.further-reading {
+    background: #f1f8e9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.further-reading h3 {
+    color: #33691e;
+    margin-bottom: 1rem;
+}
+
+.further-reading ul {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.further-reading li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #c5e1a5;
+}
+
+.further-reading li:last-child {
+    border-bottom: none;
+}
+
+/* Анимация для математических формул */
+.math-formula {
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для кнопок в боковой панели */
+.tab-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    color: #2c3e50;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tab-link:hover {
+    background: #3498db;
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Адаптивность для статьи */
+@media (max-width: 768px) {
+    .classification, .numerical-methods {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .code-example {
+        font-size: 0.8rem;
+    }
+}
