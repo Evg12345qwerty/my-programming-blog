@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Математический анализ - Научный блог</title>
+</head>
+<body>
+    <header>
+        <h1>Математический анализ</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="articles.html">Статьи</a></li>
+                <li><a href="physics.html">Физика</a></li>
+                <li><a href="math.html" class="active">Математический анализ</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="limits">Пределы</button>
+                <button class="tab-btn" data-tab="derivatives">Производные</button>
+                <button class="tab-btn" data-tab="integrals">Интегралы</button>
+                <button class="tab-btn" data-tab="series">Ряды</button>
+            </div>
+            
+            <div class="tab-content active" id="limits">
+                <h2>Пределы в программировании</h2>
+                <p>Понятие предела используется в алгоритмах, машинном обучении и анализе сложности...</p>
+            </div>
+            
+            <div class="tab-content" id="derivatives">
+                <h2>Производные и градиенты</h2>
+                <p>Основы дифференциального исчисления в машинном обучении...</p>
+            </div>
+            
+            <div class="tab-content" id="integrals">
+                <h2>Интегралы в data science</h2>
+                <p>Применение интегрального исчисления в анализе данных...</p>
+            </div>
+            
+            <div class="tab-content" id="series">
+                <h2>Ряды и приближения</h2>
+                <p>Использование рядов в численных методах...</p>
+            </div>
+        </div>
+        
+        <aside class="scroll-sidebar">
+            <!-- Такой же скроллбар как на главной -->
+        </aside>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Научно-технический блог</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
