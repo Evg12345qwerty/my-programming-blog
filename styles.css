@@ -1,659 +1,387 @@
+/* Сброс стилей */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Основные стили */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-color: #f8f9fa;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Шапка */
 header {
-    background: linear-gradient(90deg, #2c3e50 0%, #4a6491 100%);
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
     color: white;
     padding: 1.5rem 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 header h1 {
     text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-nav ul {
+/* Навигация */
+.main-nav {
     display: flex;
     justify-content: center;
-    list-style: none;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
     padding: 0 1rem;
 }
 
-nav a {
+.main-nav a {
     color: white;
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
     transition: all 0.3s ease;
-    font-weight: 500;
-    background: rgba(255,255,255,0.1);
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-nav a:hover, nav a.active {
-    background: rgba(255,255,255,0.2);
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-main {
+.main-nav a.active {
+    background: white;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Основной контейнер */
+.container {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
-    display: grid;
-    grid-template-columns: 1fr 300px;
+    display: flex;
     gap: 2rem;
-}
-
-article {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    margin-bottom: 2rem;
-    transition: transform 0.3s ease;
-}
-
-article:hover {
-    transform: translateY(-5px);
-}
-
-article h2 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    border-bottom: 3px solid #3498db;
-    padding-bottom: 0.5rem;
-}
-
-article h3 {
-    color: #34495e;
-    margin: 1.5rem 0 1rem;
-}
-
-article p {
-    margin-bottom: 1rem;
-    text-align: justify;
-}
-
-article ul {
-    margin-left: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-article li {
-    margin-bottom: 0.5rem;
-}
-
-.languages {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.lang-card {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 10px;
-    border-left: 4px solid #3498db;
-    transition: all 0.3s ease;
-}
-
-.lang-card:hover {
-    background: #e3f2fd;
-    transform: translateX(5px);
-}
-
-.lang-card h4 {
-    color: #2980b9;
-    margin-bottom: 0.5rem;
-}
-
-/* Стили для скроллбара сбоку */
-.scroll-sidebar {
-    position: sticky;
-    top: 2rem;
-    height: calc(100vh - 4rem);
-    overflow-y: auto;
-}
-
-.scroll-container {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
-
-.scroll-container h3 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.scroll-container ul {
-    list-style: none;
-}
-
-.scroll-container li {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
-}
-
-.scroll-container a {
-    color: #3498db;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    display: block;
-    padding: 0.5rem;
-    border-radius: 5px;
-}
-
-.scroll-container a:hover {
-    color: #2980b9;
-    background: #f8f9fa;
-}
-
-/* Кастомный скроллбар */
-.scroll-sidebar::-webkit-scrollbar {
-    width: 8px;
-}
-
-.scroll-sidebar::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.scroll-sidebar::-webkit-scrollbar-thumb {
-    background: #3498db;
-    border-radius: 4px;
-}
-
-.scroll-sidebar::-webkit-scrollbar-thumb:hover {
-    background: #2980b9;
-}
-
-/* Стили для вкладок */
-.tab-container {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    overflow: hidden;
-}
-
-.tab-buttons {
-    display: flex;
-    background: #2c3e50;
-    flex-wrap: wrap;
-}
-
-.tab-btn {
     flex: 1;
-    min-width: 150px;
-    padding: 1rem 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    font-weight: 500;
 }
 
-.tab-btn:hover {
-    background: rgba(255,255,255,0.1);
+/* Основной контент */
+.content {
+    flex: 1;
+    max-width: 800px;
 }
 
-.tab-btn.active {
-    background: #3498db;
-}
-
-.tab-content {
-    display: none;
+/* Статьи */
+.post {
+    background: white;
     padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tab-content.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
+.post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.post h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    line-height: 1.3;
 }
 
-/* Дополнительные стили для статьи об ОДУ */
-.article-meta {
-    display: flex;
-    justify-content: space-between;
+.post-meta {
+    color: #7f8c8d;
+    font-size: 0.9rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #eee;
-    font-size: 0.9rem;
-    color: #666;
 }
 
-.definition, .application, .method, .modern-application {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin: 1.5rem 0;
-    border-left: 4px solid #3498db;
+.post p {
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+    color: #444;
+    font-size: 1.05rem;
 }
 
-.math-formula {
+/* Боковая панель */
+.sidebar {
+    width: 320px;
+    position: relative;
+}
+
+.sidebar-content {
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Кастомный скроллбар для сайдбара */
+.sidebar-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: #bdc3c7;
+    border-radius: 3px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+    background: #95a5a6;
+}
+
+.sidebar h3 {
+    color: #2c3e50;
+    margin: 1.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #3498db;
+    font-size: 1.2rem;
+}
+
+.sidebar h3:first-child {
+    margin-top: 0;
+}
+
+/* Последние статьи в сайдбаре */
+.recent-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.sidebar-post {
     background: white;
     padding: 1rem;
     border-radius: 8px;
-    margin: 1rem 0;
-    font-family: 'Cambria Math', 'Times New Roman', serif;
-    font-size: 1.1rem;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    overflow-x: auto;
+    border-left: 3px solid #3498db;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.classification {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
+.sidebar-post:hover {
+    transform: translateX(5px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-.type-card {
-    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.type-card h4 {
+.sidebar-post h4 {
     color: #2c3e50;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #3498db;
-}
-
-.numerical-methods {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.code-example {
-    background: #2c3e50;
-    color: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin: 2rem 0;
-    overflow-x: auto;
-}
-
-.code-example pre {
-    margin: 0;
-}
-
-.code-example code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
     line-height: 1.4;
 }
 
-.insight {
-    background: linear-gradient(135deg, #fff9db, #ffec99);
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin: 2rem 0;
-    border-left: 4px solid #f59f00;
+.sidebar-post .date {
+    color: #7f8c8d;
+    font-size: 0.85rem;
 }
 
-.insight h4 {
-    color: #e67700;
+/* Категории */
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
 }
 
-.conclusion {
-    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-    padding: 2rem;
-    border-radius: 10px;
-    margin: 2rem 0;
-    border-left: 4px solid #1976d2;
-}
-
-.conclusion h3 {
-    color: #1565c0;
-}
-
-.further-reading {
-    background: #f1f8e9;
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-top: 2rem;
-}
-
-.further-reading h3 {
-    color: #33691e;
-    margin-bottom: 1rem;
-}
-
-.further-reading ul {
-    list-style-type: none;
-    margin-left: 0;
-}
-
-.further-reading li {
-    padding: 0.5rem 0;
-    border-bottom: 1px dashed #c5e1a5;
-}
-
-.further-reading li:last-child {
-    border-bottom: none;
-}
-
-/* Анимация для математических формул */
-.math-formula {
-    animation: fadeInUp 0.5s ease;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Стили для кнопок в боковой панели */
-.tab-link {
+.category {
     display: block;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    color: #2c3e50;
+    padding: 0.8rem 1rem;
+    background: white;
+    color: #3498db;
     text-decoration: none;
+    border-radius: 8px;
     transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid #e0e0e0;
 }
 
-.tab-link:hover {
+.category:hover {
     background: #3498db;
     color: white;
     transform: translateX(5px);
 }
 
+/* Архив */
+.archive {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.archive-link {
+    display: block;
+    padding: 0.8rem 1rem;
+    background: white;
+    color: #2c3e50;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 3px solid #2ecc71;
+}
+
+.archive-link:hover {
+    background: #f8f9fa;
+    padding-left: 1.3rem;
+}
+
+/* Подписка */
+.subscribe {
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    color: white;
+}
+
+.subscribe p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.email-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.email-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.subscribe-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: white;
+    color: #3498db;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.subscribe-btn:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+/* Подвал */
 footer {
     background: #2c3e50;
     color: white;
-    text-align: center;
-    padding: 2rem;
+    padding: 2rem 0;
     margin-top: 3rem;
 }
 
-footer p {
-    margin: 0.5rem 0;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
 }
 
 /* Адаптивность */
-@media (max-width: 768px) {
-    main {
-        grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
     }
     
-    .scroll-sidebar {
+    .sidebar {
+        width: 100%;
+        margin-top: 2rem;
+    }
+    
+    .sidebar-content {
         position: static;
-        height: auto;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav a {
-        width: 90%;
-        text-align: center;
-    }
-    
-    .tab-buttons {
-        flex-direction: column;
-    }
-    
-    .tab-btn {
-        min-width: 100%;
-    }
-    
-    .classification, .numerical-methods {
-        grid-template-columns: 1fr;
-    }
-    
-    .article-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .code-example {
-        font-size: 0.8rem;
+        max-height: none;
+        overflow-y: visible;
     }
 }
-/* Стили для тегов */
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
 
-.tag {
-    background: #e3f2fd;
-    color: #1976d2;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.tag:hover {
-    background: #bbdefb;
-    transform: translateY(-2px);
-}
-
-/* Улучшение для скроллбара в Firefox */
-.scroll-sidebar {
-    scrollbar-width: thin;
-    scrollbar-color: #3498db #f1f1f1;
-}
-
-/* Стили для выделения кода внутри pre */
-.code-example pre code {
-    color: #f8f9fa;
-    font-family: 'Courier New', monospace;
-    display: block;
-}
-
-/* Стили для активных ссылок в навигации */
-nav a.active {
-    background: rgba(255, 255, 255, 0.25);
-    font-weight: 600;
-}
-
-/* Стили для анимации загрузки */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-}
-
-.loading {
-    animation: pulse 1.5s infinite;
-}
-
-/* Стили для разделителя */
-hr {
-    border: none;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #3498db, transparent);
-    margin: 2rem 0;
-}
-
-/* Стили для цитат */
-blockquote {
-    border-left: 4px solid #3498db;
-    padding-left: 1.5rem;
-    margin: 1.5rem 0;
-    font-style: italic;
-    color: #555;
-}
-
-/* Стили для таблиц */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-th {
-    background: #f8f9fa;
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-tr:hover {
-    background: #f5f7fa;
-}
-
-/* Стили для кнопок */
-button:not(.tab-btn) {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    margin: 0.5rem;
-}
-
-button:not(.tab-btn):hover {
-    background: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-button:not(.tab-btn):active {
-    transform: translateY(0);
-}
-
-/* Стили для формы */
-input, textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border 0.3s ease;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-}
-
-/* Стили для изображений */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin: 1rem 0;
-}
-
-/* Стили для списков в боковой панели */
-.scroll-container ul li:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-/* Дополнительные медиа-запросы для очень маленьких экранов */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     header h1 {
         font-size: 1.8rem;
     }
     
-    nav a {
+    .main-nav {
+        gap: 0.3rem;
+    }
+    
+    .main-nav a {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
     
-    article {
-        padding: 1rem;
+    .post {
+        padding: 1.5rem;
     }
     
-    .tab-btn {
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
+    .post h2 {
+        font-size: 1.5rem;
     }
     
-    .scroll-container {
-        padding: 1rem;
-    }
-    
-    .scroll-container h3 {
-        font-size: 1.1rem;
+    .container {
+        padding: 0 0.8rem;
+        gap: 1rem;
     }
 }
 
-/* Стили для кастомного выделения текста */
-::selection {
-    background: rgba(52, 152, 219, 0.3);
-    color: #2c3e50;
-}
-
-/* Стили для печати */
-@media print {
-    .scroll-sidebar, nav, footer {
-        display: none;
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
     }
     
-    main {
-        display: block;
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
     
-    article {
-        box-shadow: none;
-        border: 1px solid #ddd;
+    .main-nav a {
+        width: 90%;
+        text-align: center;
+    }
+    
+    .post {
+        padding: 1rem;
+    }
+    
+    .post h2 {
+        font-size: 1.3rem;
     }
 }
